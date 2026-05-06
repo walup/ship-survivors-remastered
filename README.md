@@ -7,8 +7,7 @@ A Python/pygame remake of a Java LibGDX game. Dodge and destroy rocks while swit
 ## Play in the browser
 
 The game is deployed via GitHub Pages using [Pygbag](https://pygame-web.github.io/).  
-👉 **[Play here](https://YOUR_USERNAME.github.io/ship-survivors)**  
-*(Replace with your actual Pages URL after the first deploy)*
+👉 **[Play here](https://walup.github.io/ship-survivors-remastered)**
 
 > Note: first load may take a moment — music files are large WAVs.
 
