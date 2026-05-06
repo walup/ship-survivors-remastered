@@ -27,6 +27,11 @@ def save_high_score(score: int):
         pass  # silently skip in read-only environments (e.g. browser)
 
 
+def _audio(wav_path: str) -> str:
+    ogg = wav_path.rsplit('.', 1)[0] + '.ogg'
+    return ogg if os.path.exists(ogg) else wav_path
+
+
 def load_image(path, fallback_size=(64, 64), fallback_color=(200, 100, 50)) -> pygame.Surface:
     if os.path.exists(path):
         return pygame.image.load(path).convert_alpha()
@@ -127,7 +132,7 @@ def load_assets() -> dict:
     # Sound effects
     sounds = {}
     for name, fname in [('bite', 'bite.wav'), ('click', 'click.wav'), ('teleport', 'teleport.wav')]:
-        path = os.path.join(a, fname)
+        path = _audio(os.path.join(a, fname))
         if os.path.exists(path):
             try:
                 sounds[name] = pygame.mixer.Sound(path)
@@ -136,8 +141,8 @@ def load_assets() -> dict:
                 pass
     assets['sounds'] = sounds
 
-    assets['menu_music'] = os.path.join(a, 'game_song.wav')
-    assets['game_music'] = os.path.join(a, 'song2.wav')
+    assets['menu_music'] = _audio(os.path.join(a, 'game_song.wav'))
+    assets['game_music'] = _audio(os.path.join(a, 'song2.wav'))
 
     return assets
 

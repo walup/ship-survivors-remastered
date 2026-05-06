@@ -27,6 +27,12 @@ jobs:
       - name: Install Pygbag
         run: pip install pygbag
 
+      - name: Convert audio to OGG (required by Pygbag)
+        run: |
+          for f in assets/*.wav; do
+            ffmpeg -i "$f" "${f%.wav}.ogg" -y -loglevel error
+          done
+
       - name: Build
         run: python -m pygbag --build .
 
