@@ -1,4 +1,6 @@
 # Ship Survivors
+I am adding to the AI slop by using Claude to remaster a game I made about 10 years ago with Java. 
+
 
 A Python/pygame remake of a Java LibGDX game. Dodge and destroy rocks while switching between three weapons. Survive as long as you can.
 
