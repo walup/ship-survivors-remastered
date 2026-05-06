@@ -29,6 +29,7 @@ jobs:
 
       - name: Convert audio to OGG (required by Pygbag)
         run: |
+          sudo apt-get install -y ffmpeg -qq
           for f in assets/*.wav; do
             ffmpeg -i "$f" "${f%.wav}.ogg" -y -loglevel error
           done
